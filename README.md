@@ -1,7 +1,7 @@
 A responsive grid layout POC I made because apparently this is what I find fun to do on a Saturday night. *(Literally no idea why, don't ask)*
 
 ## Deployed Testing Link
-[Click here or something.](url)
+[Click here or something.](https://grid-poc-theta.vercel.app/)
 
 ## Notes
 I hate _hate_ this weird CSS thing Next.js does, but I was too tired to care enough to do something else about it.
