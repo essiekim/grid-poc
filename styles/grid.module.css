@@ -1,0 +1,115 @@
+/* page layout*/
+.container {
+  display: grid;
+}
+
+/* main body */
+.main {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  display: inline-grid;
+  gap: 10px;
+}
+
+/* elements */
+.content {
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.header {
+  grid-area: header;
+  background-color: pink;
+  min-height: 100px;
+}
+
+.article {
+  grid-area: article;
+  background-color: palegreen;
+  min-height: 300px;
+  /* padding: 20px 50px; */
+}
+
+.rail {
+  grid-area: rail;
+  background-color: paleturquoise;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: palegoldenrod;
+  min-height: 100px;
+}
+
+/* desktop */
+@media screen and (min-width: 1024px) {
+  .container {
+    grid-template-columns:
+      minmax(64px, auto)
+      minmax(auto, 1100px)
+      minmax(64px, auto);
+  }
+
+  .main {
+    grid-template-columns: repeat(5, 1fr);
+    /* idk why i chose 5 columns, don't ask */
+    grid-template-areas:
+      "header header header header header"
+      "article article article article rail"
+      "footer footer footer footer footer";
+  }
+}
+
+/* tablet */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .container {
+    grid-template-columns:
+      minmax(48px, auto)
+      minmax(auto, 800px)
+      minmax(48px, auto);
+  }
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "article"
+      "footer";
+  }
+
+  /* hidden bc the designs said so but also to show flexibility */
+  .rail {
+    display: none;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .container {
+    grid-template-columns:
+      minmax(5vw, auto)
+      minmax(auto, 90vw)
+      minmax(5vw, auto);
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "article"
+      "rail"
+      "footer";
+  }
+
+  .content {
+    padding: 5vw 10vw;
+  }
+
+  .rail {
+    height: 200px;
+  }
+}
