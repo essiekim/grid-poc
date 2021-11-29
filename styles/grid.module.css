@@ -20,30 +20,47 @@
   justify-content: center;
   align-items: center;
   padding: 20px 50px;
+  min-width: 225px;
 }
 
 .header {
   grid-area: header;
-  background-color: pink;
+  background-color: #f4a2a2;
   min-height: 100px;
+}
+
+.header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .article {
   grid-area: article;
-  background-color: palegreen;
+  background-color: #c5e9bf;
   min-height: 300px;
-  /* padding: 20px 50px; */
+}
+
+.ledeart {
+  grid-area: ledeart;
+  background-color: #b5d8af;
+  min-height: 500px;
 }
 
 .rail {
-  grid-area: rail;
-  background-color: paleturquoise;
+  grid-area: adrail;
+  background-color: #a2c8f4;
 }
 
 .footer {
   grid-area: footer;
-  background-color: palegoldenrod;
-  min-height: 100px;
+  background-color: #e5bfe9;
+  min-height: 300px;
 }
 
 /* desktop */
@@ -55,13 +72,21 @@
       minmax(64px, auto);
   }
 
-  .main {
+  .standard {
     grid-template-columns: repeat(5, 1fr);
-    /* idk why i chose 5 columns, don't ask */
     grid-template-areas:
       "header header header header header"
-      "article article article article rail"
+      "article article article article adrail"
       "footer footer footer footer footer";
+  }
+
+  .center {
+    grid-template-columns: 1fr minmax(auto, 640px) 1fr;
+    grid-template-areas:
+      "header header header"
+      "ledeart ledeart ledeart"
+      ". article ."
+      "footer footer footer";
   }
 }
 
@@ -73,7 +98,7 @@
       minmax(auto, 800px)
       minmax(48px, auto);
   }
-  .main {
+  .standard {
     grid-template-columns: 1fr;
     grid-template-areas:
       "header"
@@ -81,7 +106,15 @@
       "footer";
   }
 
-  /* hidden bc the designs said so but also to show flexibility */
+  .center {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "ledeart"
+      "article"
+      "footer";
+  }
+
   .rail {
     display: none;
   }
@@ -89,6 +122,7 @@
 
 /* mobile */
 @media screen and (max-width: 767px) {
+  /* percentage based */
   .container {
     grid-template-columns:
       minmax(5vw, auto)
@@ -96,12 +130,20 @@
       minmax(5vw, auto);
   }
 
-  .main {
+  .standard {
     grid-template-columns: 1fr;
     grid-template-areas:
       "header"
       "article"
-      "rail"
+      "footer";
+  }
+
+  .center {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "ledeart"
+      "article"
       "footer";
   }
 
@@ -110,6 +152,6 @@
   }
 
   .rail {
-    height: 200px;
+    display: none;
   }
 }

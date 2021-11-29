@@ -1,0 +1,82 @@
+/*elements*/
+
+.navrail {
+  grid-area: navrail;
+  background-color: bisque;
+  display: none;
+}
+
+.rail {
+  grid-area: adrail;
+  background-color: #a2c8f4;
+  display: none;
+}
+
+/* large desktop */
+@media screen and (min-width: 1440px) {
+  /* uses a whole new layout style */
+  .live {
+    display: grid;
+    grid-template-columns: 320px auto 320px;
+    gap: 10px;
+
+    grid-template-areas:
+      "header header header"
+      "navrail article adrail"
+      "footer footer footer";
+  }
+  .navrail,
+  .rail {
+    display: inherit;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  /* uses a whole new layout style */
+  .live {
+    display: grid;
+    grid-template-columns: 320px auto;
+    gap: 10px;
+
+    grid-template-areas:
+      "header header"
+      "navrail article"
+      "footer footer";
+  }
+  .navrail {
+    display: inherit;
+  }
+}
+
+/* tablet */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .live {
+    display: grid;
+    grid-template-columns:
+      minmax(48px, auto)
+      minmax(auto, 800px)
+      minmax(48px, auto);
+    row-gap: 10px;
+    grid-template-areas:
+      ". header ."
+      ". article ."
+      ". footer .";
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .live {
+    display: grid;
+    grid-template-columns:
+      minmax(5vw, auto)
+      minmax(auto, 90vw)
+      minmax(5vw, auto);
+
+    row-gap: 10px;
+    grid-template-areas:
+      ". header ."
+      ". article ."
+      ". footer .";
+  }
+}

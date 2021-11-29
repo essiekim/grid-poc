@@ -6,10 +6,10 @@ import styles from "../styles/grid.module.css";
 const Container = () => {
   return (
     <div className={styles.container}>
-      <div className={`${styles.main} ${styles.standard}`}>
+      <div className={`${styles.main} ${styles.center}`}>
+        <div className={`${styles.ledeart} ${styles.content}`}>lede art</div>
         <Header />
         <Body />
-        <div className={`${styles.rail} ${styles.content}`}>item blah blah</div>
         <div className={`${styles.footer} ${styles.content}`}>
           item blah blah
         </div>
