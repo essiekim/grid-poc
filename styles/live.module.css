@@ -17,7 +17,7 @@
   /* uses a whole new layout style */
   .live {
     display: grid;
-    grid-template-columns: 320px auto 320px;
+    grid-template-columns: 320px auto 300px;
     gap: 10px;
 
     grid-template-areas:

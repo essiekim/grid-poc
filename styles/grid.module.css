@@ -19,7 +19,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 50px;
   min-width: 225px;
 }
 
@@ -40,16 +39,47 @@
   justify-content: space-evenly;
 }
 
+.kicker {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: 1rem;
+}
+
+.headlineGroup {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin: 32px 0px 16px 0px;
+}
+
+.headline {
+  padding: 0px 0px 16px;
+}
+
+.subhead {
+  color: #666;
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
 .article {
   grid-area: article;
-  background-color: #c5e9bf;
+  background-color: #effaed;
   min-height: 300px;
+
+  display: inline-grid;
+  grid-template-columns: 1fr repeat(4, minmax(auto, 160px)) 1fr;
+}
+
+.article .bodyText {
+  grid-column: 2/6;
 }
 
 .ledeart {
   grid-area: ledeart;
   background-color: #b5d8af;
-  min-height: 500px;
+  min-height: 400px;
 }
 
 .rail {
@@ -63,6 +93,25 @@
   min-height: 300px;
 }
 
+.inlineImg {
+  background-color: lightgray;
+  aspect-ratio: 3/2;
+  width: 100%;
+  grid-auto-flow: column;
+}
+
+.article .leftImg {
+  grid-column: 4/1;
+  justify-self: end;
+  margin-right: 6px;
+}
+
+.article .rightImg {
+  grid-column: 4/-1;
+  justify-self: start;
+  margin-left: 6px;
+}
+
 /* desktop */
 @media screen and (min-width: 1024px) {
   .container {
@@ -73,7 +122,7 @@
   }
 
   .standard {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr) 300px;
     grid-template-areas:
       "header header header header header"
       "article article article article adrail"
@@ -81,12 +130,16 @@
   }
 
   .center {
-    grid-template-columns: 1fr minmax(auto, 640px) 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "header header header"
-      "ledeart ledeart ledeart"
-      ". article ."
-      "footer footer footer";
+      "header"
+      "ledeart"
+      "article"
+      "footer";
+  }
+
+  .inlineImg {
+    max-width: 500px;
   }
 }
 
@@ -98,6 +151,7 @@
       minmax(auto, 800px)
       minmax(48px, auto);
   }
+
   .standard {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -147,8 +201,16 @@
       "footer";
   }
 
-  .content {
-    padding: 5vw 10vw;
+  .article .leftImg {
+    grid-column: 2/6;
+    justify-self: center;
+    margin: 10px 0;
+  }
+
+  .article .rightImg {
+    grid-column: 2/6;
+    justify-self: center;
+    margin: 10px 0;
   }
 
   .rail {

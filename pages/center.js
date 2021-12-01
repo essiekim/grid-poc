@@ -9,7 +9,7 @@ const Container = () => {
       <div className={`${styles.main} ${styles.center}`}>
         <div className={`${styles.ledeart} ${styles.content}`}>lede art</div>
         <Header />
-        <Body />
+        <Body center="true" />
         <div className={`${styles.footer} ${styles.content}`}>
           item blah blah
         </div>
